@@ -15,35 +15,32 @@ module.exports = function makeExchange(currency) {
 
      let tmp;
 
-     while (currency > 0) {
+     tmp = Math.trunc(currency / 50);
+     if (tmp !== 0) {
+          currency = currency % 50;
+          changeMoney.H = changeMoney.H + tmp;
+     }
 
-          tmp = Math.trunc(currency / 50);
-          if (tmp !== 0) {
-               currency = currency % 50;
-               changeMoney.H = changeMoney.H + tmp;
-          }
+     tmp = Math.trunc(currency / 25);
+     if (tmp !== 0) {
+          currency = currency % 25;
+          changeMoney.Q = changeMoney.Q + tmp;
+     }
 
-          tmp = Math.trunc(currency / 25);
-          if (tmp !== 0) {
-               currency = currency % 25;
-               changeMoney.Q = changeMoney.Q + tmp;
-          }
+     tmp = Math.trunc(currency / 10);
+     if (tmp !== 0) {
+          currency = currency % 10;
+          changeMoney.D = changeMoney.D + tmp;
+     }
 
-          tmp = Math.trunc(currency / 10);
-          if (tmp !== 0) {
-               currency = currency % 10;
-               changeMoney.D = changeMoney.D + tmp;
-          }
+     tmp = Math.trunc(currency / 5);
+     if (tmp !== 0) {
+          currency = currency % 5;
+          changeMoney.N = changeMoney.N + tmp;
+     }
 
-          tmp = Math.trunc(currency / 5);
-          if (tmp !== 0) {
-               currency = currency % 5;
-               changeMoney.N = changeMoney.N + tmp;
-          }
-
-          if (currency !== 0) {
-               changeMoney.P = currency;
-          }
+     if (currency !== 0) {
+          changeMoney.P = currency;
      }
 
      let solution = {};
