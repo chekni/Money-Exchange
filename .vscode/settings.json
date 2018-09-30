@@ -1,0 +1,5 @@
+{
+     "debug.allowBreakpointsEverywhere": true,
+     "debug.inlineValues": true,
+     "debug.enableAllHovers": true
+}
